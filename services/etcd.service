@@ -8,7 +8,7 @@ Documentation=https://github.com/coreos
 [Service]
 Type=notify
 WorkingDirectory=/var/lib/etcd/
-ExecStart=/opt/kubernetes/bin/etcd \
+ExecStart=/usr/local/bin/etcd \
   --data-dir=/var/lib/etcd \
   --name={{NODE_NAME}} \
   --cert-file=/etc/kubernetes/pki/etcd.pem \
