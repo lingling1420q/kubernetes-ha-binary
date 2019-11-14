@@ -1,14 +1,4 @@
 apiVersion: v1
-kind: ConfigMap
-metadata:
-  labels:
-    k8s-app: kubernetes-dashboard
-    # Allows editing resource and makes sure it is created first.
-    addonmanager.kubernetes.io/mode: EnsureExists
-  name: kubernetes-dashboard-settings
-  namespace: kube-system
----
-apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:
@@ -24,7 +14,6 @@ metadata:
   namespace: kube-system
   labels:
     k8s-app: kubernetes-dashboard
-    kubernetes.io/cluster-service: "true"
     addonmanager.kubernetes.io/mode: Reconcile
 spec:
   selector:
@@ -35,13 +24,12 @@ spec:
       labels:
         k8s-app: kubernetes-dashboard
       annotations:
-        scheduler.alpha.kubernetes.io/critical-pod: ''
         seccomp.security.alpha.kubernetes.io/pod: 'docker/default'
     spec:
       priorityClassName: system-cluster-critical
       containers:
       - name: kubernetes-dashboard
-        image: k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3
+        image: k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
         resources:
           limits:
             cpu: 100m
@@ -74,12 +62,24 @@ spec:
       - name: tmp-volume
         emptyDir: {}
       serviceAccountName: kubernetes-dashboard
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       tolerations:
       - key: "CriticalAddonsOnly"
         operator: "Exists"
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+    # Allows editing resource and makes sure it is created first.
+    addonmanager.kubernetes.io/mode: EnsureExists
+  name: kubernetes-dashboard-settings
+  namespace: kube-system
+---
 kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   labels:
     k8s-app: kubernetes-dashboard
@@ -163,3 +163,4 @@ spec:
     targetPort: 8443
     nodePort: 8401
   type: NodePort
+---
