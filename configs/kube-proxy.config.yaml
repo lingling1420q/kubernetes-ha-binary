@@ -6,4 +6,12 @@ clusterCIDR: {{POD_CIDR}}
 healthzBindAddress: {{NODE_IP}}:10256
 kind: KubeProxyConfiguration
 metricsBindAddress: {{NODE_IP}}:10249
-mode: "iptables"
+enableProfiling: true
+hostnameOverride: {{NODE_NAME}}
+mode: "ipvs"
+portRange: ""
+kubeProxyIPTablesConfiguration:
+  masqueradeAll: false
+kubeProxyIPVSConfiguration:
+  scheduler: rr
+  excludeCIDRs: []

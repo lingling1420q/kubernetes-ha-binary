@@ -4,10 +4,10 @@ Documentation=https://github.com/GoogleCloudPlatform/kubernetes
 
 [Service]
 ExecStart=/usr/local/bin/kube-scheduler \
-  --bind-address=127.0.0.1 \
+  --config=/etc/kubernetes/kube-scheduler.config.yaml \
+  --bind-address={{NODE_IP}} \
   --secure-port=10259 \
   --port=0 \
-  --kubeconfig=/etc/kubernetes/kube-scheduler.kubeconfig \
   --tls-cert-file=/etc/kubernetes/pki/kube-scheduler.pem \
   --tls-private-key-file=/etc/kubernetes/pki/kube-scheduler-key.pem \
   --authentication-kubeconfig=/etc/kubernetes/kube-scheduler.kubeconfig \

@@ -25,7 +25,13 @@ ExecStart=/usr/local/bin/etcd \
   --advertise-client-urls=https://{{NODE_IP}}:2379 \
   --initial-cluster-token=etcd-cluster-0 \
   --initial-cluster={{MASTER_0_HOSTNAME}}=https://{{MASTER_0_IP}}:2380,{{MASTER_1_HOSTNAME}}=https://{{MASTER_1_IP}}:2380,{{MASTER_2_HOSTNAME}}=https://{{MASTER_2_IP}}:2380 \
-  --initial-cluster-state=new
+  --initial-cluster-state=new \
+  --auto-compaction-mode=periodic \
+  --auto-compaction-retention=1 \
+  --max-request-bytes=33554432 \
+  --quota-backend-bytes=6442450944 \
+  --heartbeat-interval=250 \
+  --election-timeout=2000
 Restart=on-failure
 RestartSec=5
 LimitNOFILE=65536

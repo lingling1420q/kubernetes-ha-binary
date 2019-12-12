@@ -61,9 +61,8 @@ do
     ip=${worker_ips[$i]}
     mkdir "worker-$ip"
     kvs["NODE_IP"]=$ip
-    cp configs/kubelet.config.json "worker-$ip"
+    cp configs/kubelet.config.yaml "worker-$ip"
     cp services/kubelet.service "worker-$ip"
-    cp configs/kube-proxy.config.yaml "worker-$ip"
     replace_files "worker-$ip"
 done
 
@@ -71,6 +70,7 @@ echo -e "\n====替换service文件===="
 DIR=${kvs["MASTER_0_IP"]}
 mkdir $DIR
 cp -r services $DIR
+cp -r configs $DIR
 kvs["NODE_IP"]=$DIR
 kvs["NODE_NAME"]=${kvs["MASTER_0_HOSTNAME"]}
 replace_files $DIR
@@ -79,6 +79,7 @@ replace_files $DIR
 DIR=${kvs["MASTER_1_IP"]}
 mkdir $DIR
 cp -r services $DIR
+cp -r configs $DIR
 kvs["NODE_IP"]=$DIR
 kvs["NODE_NAME"]=${kvs["MASTER_1_HOSTNAME"]}
 replace_files $DIR
@@ -86,6 +87,7 @@ replace_files $DIR
 DIR=${kvs["MASTER_2_IP"]}
 mkdir $DIR
 cp -r services $DIR
+cp -r configs $DIR
 kvs["NODE_IP"]=$DIR
 kvs["NODE_NAME"]=${kvs["MASTER_2_HOSTNAME"]}
 replace_files $DIR
