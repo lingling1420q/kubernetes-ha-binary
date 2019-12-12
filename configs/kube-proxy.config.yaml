@@ -7,7 +7,7 @@ healthzBindAddress: {{NODE_IP}}:10256
 kind: KubeProxyConfiguration
 metricsBindAddress: {{NODE_IP}}:10249
 enableProfiling: true
-hostnameOverride: {{NODE_NAME}}
+hostnameOverride: ""
 mode: "ipvs"
 portRange: ""
 kubeProxyIPTablesConfiguration:
