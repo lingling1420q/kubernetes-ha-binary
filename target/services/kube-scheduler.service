@@ -1,0 +1,27 @@
+[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/
+
+[Service]
+ExecStart=/usr/local/bin/kube-scheduler \
+  --authentication-kubeconfig=/etc/kubernetes/kube-scheduler.kubeconfig \
+  --authorization-kubeconfig=/etc/kubernetes/kube-scheduler.kubeconfig \
+  --bind-address=172.18.0.111 \
+  --client-ca-file=/etc/kubernetes/pki/ca.pem \
+  --leader-elect="true" \
+  --logtostderr=false \
+  --log-dir=/var/log/kubernetes \  
+  --requestheader-allowed-names="" \
+  --requestheader-client-ca-file=/etc/kubernetes/pki/ca.pem \
+  --requestheader-extra-headers-prefix="X-Remote-Extra-" \
+  --requestheader-group-headers=X-Remote-Group \
+  --requestheader-username-headers=X-Remote-User \
+  --secure-port=10259 \
+  --tls-cert-file=/etc/kubernetes/pki/kube-scheduler.pem \
+  --tls-private-key-file=/etc/kubernetes/pki/kube-scheduler-key.pem
+
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
