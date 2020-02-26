@@ -4,7 +4,7 @@
       "expiry": "87600h"
     },
     "profiles": {
-      "aggregator": {
+      "front-proxy": {
         "usages": [
             "signing",
             "key encipherment",

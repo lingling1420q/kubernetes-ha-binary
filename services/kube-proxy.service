@@ -8,7 +8,7 @@ WorkingDirectory=/var/lib/kube-proxy
 ExecStart=/usr/local/bin/kube-proxy \
   --config=/etc/kubernetes/kube-proxy.config.yaml \
   --logtostderr=false \
-  --log-dir=/var/log/kubernetes \
+  --log-dir=/var/log/kubernetes
 
 Restart=on-failure
 RestartSec=5
