@@ -24,7 +24,7 @@ ExecStart=/usr/local/bin/etcd \
   --listen-client-urls=https://{{NODE_IP}}:2379,http://127.0.0.1:2379 \
   --advertise-client-urls=https://{{NODE_IP}}:2379 \
   --initial-cluster-token=etcd-cluster-0 \
-  --initial-cluster={{MASTER_0_HOSTNAME}}=https://{{MASTER_0_IP}}:2380,{{MASTER_1_HOSTNAME}}=https://{{MASTER_1_IP}}:2380,{{MASTER_2_HOSTNAME}}=https://{{MASTER_2_IP}}:2380 \
+  --initial-cluster={{ETCD_1_HOSTNAME}}=https://{{ETCD_1_IP}}:2380,{{ETCD_2_HOSTNAME}}=https://{{ETCD_2_IP}}:2380,{{ETCD_3_HOSTNAME}}=https://{{ETCD_3_IP}}:2380 \
   --initial-cluster-state=new \
   --auto-compaction-mode=periodic \
   --auto-compaction-retention=1 \

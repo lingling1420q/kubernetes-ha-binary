@@ -1,6 +1,6 @@
 [Unit]
 Description=Kubernetes Kubelet
-Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Documentation=https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
 After=docker.service
 Requires=docker.service
 
@@ -9,14 +9,12 @@ WorkingDirectory=/var/lib/kubelet
 ExecStart=/usr/local/bin/kubelet \
   --bootstrap-kubeconfig=/etc/kubernetes/kubelet-bootstrap.kubeconfig \
   --cert-dir=/etc/kubernetes/pki \
-  --kubeconfig=/etc/kubernetes/kubelet.kubeconfig \
   --config=/etc/kubernetes/kubelet.config.yaml \
-  --network-plugin=cni \
-  --pod-infra-container-image=wangzan18/pause-amd64:3.1 \
-  --alsologtostderr=true \
-  --logtostderr=false \
+  --kubeconfig=/etc/kubernetes/kubelet.kubeconfig \
   --log-dir=/var/log/kubernetes \
-  --v=2
+  --network-plugin=cni \
+  --pod-infra-container-image=wangzan18/pause-amd64:3.1
+
 Restart=on-failure
 RestartSec=5
 

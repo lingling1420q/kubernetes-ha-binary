@@ -8,10 +8,10 @@
   "names": [
     {
       "C": "CN",
-      "ST": "BeiJing",
-      "L": "BeiJing",
+      "ST": "Shanghai",
+      "L": "Shanghai",
       "O": "system:masters",
-      "OU": "seven"
+      "OU": "wzlinux"
     }
   ]
 }

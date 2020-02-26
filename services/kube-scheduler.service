@@ -1,27 +1,25 @@
 [Unit]
 Description=Kubernetes Scheduler
-Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Documentation=https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/
 
 [Service]
 ExecStart=/usr/local/bin/kube-scheduler \
-  --config=/etc/kubernetes/kube-scheduler.config.yaml \
-  --bind-address={{NODE_IP}} \
-  --secure-port=10259 \
-  --port=0 \
-  --tls-cert-file=/etc/kubernetes/pki/kube-scheduler.pem \
-  --tls-private-key-file=/etc/kubernetes/pki/kube-scheduler-key.pem \
   --authentication-kubeconfig=/etc/kubernetes/kube-scheduler.kubeconfig \
   --authorization-kubeconfig=/etc/kubernetes/kube-scheduler.kubeconfig \
+  --bind-address={{NODE_IP}} \
   --client-ca-file=/etc/kubernetes/pki/ca.pem \
+  --leader-elect="true" \
+  --logtostderr=false \
+  --log-dir=/var/log/kubernetes \  
   --requestheader-allowed-names="" \
   --requestheader-client-ca-file=/etc/kubernetes/pki/ca.pem \
   --requestheader-extra-headers-prefix="X-Remote-Extra-" \
   --requestheader-group-headers=X-Remote-Group \
   --requestheader-username-headers=X-Remote-User \
-  --alsologtostderr=true \
-  --logtostderr=false \
-  --log-dir=/var/log/kubernetes \
-  --v=2
+  --secure-port=10259 \
+  --tls-cert-file=/etc/kubernetes/pki/kube-scheduler.pem \
+  --tls-private-key-file=/etc/kubernetes/pki/kube-scheduler-key.pem
+
 Restart=on-failure
 RestartSec=5
 

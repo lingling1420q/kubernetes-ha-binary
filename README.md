@@ -10,13 +10,4 @@
 - docker 17.03
 - calico 3.1.3
 
-## 安装教程
-#### [一、实践环境准备][1]
-#### [二、高可用集群部署][2]
-#### [三、集群可用性测试][3]
-#### [四、部署dashboard][4]
 
-[1]:https://github.com/wangzan18/kubernetes-ha-binary/blob/master/docs/1-prepare.md
-[2]:https://github.com/wangzan18/kubernetes-ha-binary/blob/master/docs/2-ha-deploy.md
-[3]:https://github.com/wangzan18/kubernetes-ha-binary/blob/master/docs/3-test.md
-[4]:https://github.com/wangzan18/kubernetes-ha-binary/blob/master/docs/4-dashboard.md

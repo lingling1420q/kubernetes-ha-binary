@@ -2,7 +2,6 @@
     "CN": "system:kube-scheduler",
     "hosts": [
       "127.0.0.1",
-      "{{MASTER_0_IP}}",
       "{{MASTER_1_IP}}",
       "{{MASTER_2_IP}}"
     ],
@@ -13,10 +12,10 @@
     "names": [
       {
         "C": "CN",
-        "ST": "BeiJing",
-        "L": "BeiJing",
+        "ST": "Shanghai",
+        "L": "Shanghai",
         "O": "system:kube-scheduler",
-        "OU": "seven"
+        "OU": "wzlinux"
       }
     ]
 }

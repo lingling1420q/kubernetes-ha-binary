@@ -5,7 +5,7 @@
  --allow-privileged="true"
  --alsologtostderr="false"
  --anonymous-auth="true"
- --api-audiences="[https
+ --api-audiences="[https://kubernetes.default.svc]"
  --apiserver-count="1"
  --audit-dynamic-configuration="false"
  --audit-log-batch-buffer-size="10000"
@@ -75,7 +75,7 @@
  --etcd-count-metric-poll-period="1m0s"
  --etcd-keyfile=""
  --etcd-prefix="/registry"
- --etcd-servers="[http
+ --etcd-servers="[http://internal-eks-c75b8-EtcdLoad-DY9Y4IFXLTAO-1824531945.us-east-1.elb.amazonaws.com:2379]"
  --etcd-servers-overrides="[]"
  --event-ttl="1h0m0s"
  --experimental-encryption-provider-config=""
@@ -127,8 +127,8 @@
  --requestheader-username-headers="[X-Remote-User]"
  --runtime-config="extensions/v1beta1/networkpolicies=true"
  --secure-port="443"
- --service-account-api-audiences="[https
- --service-account-issuer="https
+ --service-account-api-audiences="[https://kubernetes.default.svc]"
+ --service-account-issuer="https://oidc.eks.us-east-1.amazonaws.com/id/900B62D5EA15DC82EC523AD824232853"
  --service-account-key-file="[/etc/kubernetes/pki/sa.pub]"
  --service-account-lookup="true"
  --service-account-max-token-expiration="24h0m0s"

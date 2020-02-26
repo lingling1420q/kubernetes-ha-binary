@@ -2,9 +2,9 @@
   "CN": "etcd",
   "hosts": [
     "127.0.0.1",
-    "{{MASTER_0_IP}}",
-    "{{MASTER_1_IP}}",
-    "{{MASTER_2_IP}}"
+    "{{ETCD_1_IP}}",
+    "{{ETCD_2_IP}}",
+    "{{ETCD_3_IP}}"
   ],
   "key": {
     "algo": "rsa",
@@ -13,10 +13,10 @@
   "names": [
     {
       "C": "CN",
-      "ST": "BeiJing",
-      "L": "BeiJing",
+      "ST": "Shanghai",
+      "L": "Shanghai",
       "O": "k8s",
-      "OU": "seven"
+      "OU": "wzlinux"
     }
   ]
 }

@@ -1,16 +1,15 @@
 [Unit]
 Description=Kubernetes Kube-Proxy Server
-Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Documentation=https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/
 After=network.target
 
 [Service]
 WorkingDirectory=/var/lib/kube-proxy
 ExecStart=/usr/local/bin/kube-proxy \
   --config=/etc/kubernetes/kube-proxy.config.yaml \
-  --alsologtostderr=true \
   --logtostderr=false \
   --log-dir=/var/log/kubernetes \
-  --v=2
+
 Restart=on-failure
 RestartSec=5
 LimitNOFILE=65536

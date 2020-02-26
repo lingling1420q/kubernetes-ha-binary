@@ -7,10 +7,10 @@
   "names": [
     {
       "C": "CN",
-      "ST": "BeiJing",
-      "L": "BeiJing",
+      "ST": "Shanghai",
+      "L": "Shanghai",
       "O": "k8s",
-      "OU": "seven"
+      "OU": "wzlinux"
     }
   ]
 }

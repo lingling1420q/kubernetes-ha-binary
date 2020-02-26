@@ -63,34 +63,45 @@ do
     kvs["NODE_IP"]=$ip
     cp configs/kubelet.config.yaml "worker-$ip"
     cp services/kubelet.service "worker-$ip"
+    cp configs/kube-proxy.config.yaml "worker-$ip"
+    cp services/kube-proxy.service "worker-$ip"
+    cp services/etcd.service "worker-$ip"
     replace_files "worker-$ip"
 done
 
 echo -e "\n====替换service文件===="
-DIR=${kvs["MASTER_0_IP"]}
-mkdir $DIR
-cp -r services $DIR
-cp -r configs $DIR
-kvs["NODE_IP"]=$DIR
-kvs["NODE_NAME"]=${kvs["MASTER_0_HOSTNAME"]}
-replace_files $DIR
-
 
 DIR=${kvs["MASTER_1_IP"]}
-mkdir $DIR
-cp -r services $DIR
-cp -r configs $DIR
-kvs["NODE_IP"]=$DIR
-kvs["NODE_NAME"]=${kvs["MASTER_1_HOSTNAME"]}
-replace_files $DIR
+mkdir "master-$DIR"
+cp -r services/{kube-apiserver.service,kube-controller-manager.service,kube-scheduler.service} "master-$DIR"
+replace_files "master-$DIR"
 
 DIR=${kvs["MASTER_2_IP"]}
-mkdir $DIR
-cp -r services $DIR
-cp -r configs $DIR
+mkdir "master-$DIR"
+cp -r services/{kube-apiserver.service,kube-controller-manager.service,kube-scheduler.service} "master-$DIR"
+replace_files "master-$DIR"
+
+DIR=${kvs["ETCD_1_IP"]}
+mkdir "etcd-$DIR"
+cp -r services/etcd.service "etcd-$DIR"
 kvs["NODE_IP"]=$DIR
-kvs["NODE_NAME"]=${kvs["MASTER_2_HOSTNAME"]}
-replace_files $DIR
+kvs["NODE_NAME"]=${kvs["ETCD_1_HOSTNAME"]}
+replace_files "etcd-$DIR"
+
+DIR=${kvs["ETCD_2_IP"]}
+mkdir "etcd-$DIR"
+cp -r services/etcd.service "etcd-$DIR"
+kvs["NODE_IP"]=$DIR
+kvs["NODE_NAME"]=${kvs["ETCD_2_HOSTNAME"]}
+replace_files "etcd-$DIR"
+
+DIR=${kvs["ETCD_3_IP"]}
+mkdir "etcd-$DIR"
+cp -r services/etcd.service "etcd-$DIR"
+kvs["NODE_IP"]=$DIR
+kvs["NODE_NAME"]=${kvs["ETCD_3_HOSTNAME"]}
+replace_files "etcd-$DIR"
+
 
 replace_files services
 
