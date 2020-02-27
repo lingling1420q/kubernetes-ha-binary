@@ -11,7 +11,7 @@ ExecStart=/usr/local/bin/kube-scheduler \
   --leader-elect="true" \
   --logtostderr=false \
   --log-dir=/var/log/kubernetes \
-  --port=0
+  --port=0 \
   --secure-port=10259
 
 Restart=on-failure

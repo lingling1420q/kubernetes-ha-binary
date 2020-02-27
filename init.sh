@@ -65,7 +65,6 @@ do
     cp services/kubelet.service "worker-$ip"
     cp configs/kube-proxy.config.yaml "worker-$ip"
     cp services/kube-proxy.service "worker-$ip"
-    cp services/etcd.service "worker-$ip"
     replace_files "worker-$ip"
 done
 
