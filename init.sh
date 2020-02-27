@@ -73,11 +73,13 @@ echo -e "\n====替换service文件===="
 
 DIR=${kvs["MASTER_1_IP"]}
 mkdir "master-$DIR"
+kvs["NODE_IP"]=$DIR
 cp -r services/{kube-apiserver.service,kube-controller-manager.service,kube-scheduler.service} "master-$DIR"
 replace_files "master-$DIR"
 
 DIR=${kvs["MASTER_2_IP"]}
 mkdir "master-$DIR"
+kvs["NODE_IP"]=$DIR
 cp -r services/{kube-apiserver.service,kube-controller-manager.service,kube-scheduler.service} "master-$DIR"
 replace_files "master-$DIR"
 

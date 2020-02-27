@@ -8,7 +8,7 @@ healthzBindAddress: ""
 metricsBindAddress: ""
 enableProfiling: false
 hostnameOverride: ""
-mode: "ipvs"
+mode: ""
 portRange: ""
 iptables:
   masqueradeAll: false
