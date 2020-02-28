@@ -23,7 +23,6 @@ ExecStart=/usr/local/bin/kube-apiserver \
   --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd.pem \
   --etcd-keyfile=/etc/kubernetes/pki/apiserver-etcd-key.pem \
   --etcd-servers=https://{{ETCD_1_IP}}:2379,https://{{ETCD_2_IP}}:2379,https://{{ETCD_3_IP}}:2379 \
-  --insecure-port=0 \
   --kubelet-certificate-authority=/etc/kubernetes/pki/ca.pem \
   --kubelet-client-certificate=/etc/kubernetes/pki/apiserver-kubelet-client.pem \
   --kubelet-client-key=/etc/kubernetes/pki/apiserver-kubelet-client-key.pem \
@@ -34,7 +33,6 @@ ExecStart=/usr/local/bin/kube-apiserver \
   --log-dir=/var/log/kubernetes \
   --proxy-client-cert-file=/etc/kubernetes/pki/front-proxy-client.pem \
   --proxy-client-key-file=/etc/kubernetes/pki/front-proxy-client-key.pem \
-  --profiling \
   --requestheader-allowed-names="aggregator" \  
   --requestheader-client-ca-file=/etc/kubernetes/pki/front-proxy-ca.pem \
   --requestheader-extra-headers-prefix=X-Remote-Extra- \
