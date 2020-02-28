@@ -17,7 +17,6 @@ ExecStart=/usr/local/bin/kube-controller-manager \
   --leader-elect=true \
   --logtostderr=false \
   --log-dir=/var/log/kubernetes \
-  --profiling \
   --requestheader-client-ca-file=/etc/kubernetes/pki/front-proxy-ca.pem \
   --root-ca-file=/etc/kubernetes/pki/ca.pem \
   --secure-port=10257 \
